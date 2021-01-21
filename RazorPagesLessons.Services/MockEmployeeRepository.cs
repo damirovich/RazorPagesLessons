@@ -7,11 +7,11 @@ namespace RazorPagesLessons.Services
 {
     public class MockEmployeeRepository : IEmployeeRepository
     {
-        private List<Employee> employeesList;
+        private List<Employee> _employeesList;
 
         public MockEmployeeRepository()
         {
-            employeesList = new List<Employee>();
+            _employeesList = new List<Employee>()
             {
                 new Employee()
                 {
@@ -20,60 +20,60 @@ namespace RazorPagesLessons.Services
                     Email = "baktilekashyrov8@gmail.com",
                     PhotoPath = "zuko.jpg",
                     Department = Department.IT
-                };
+                },
                 new Employee()
                 {
-                    Id = 0,
+                    Id = 1,
                     Name = "Samat",
                     Email = "samatmuratov@gmail.com",
                     PhotoPath = "sokko.jpg",
                     Department = Department.HR
-                };
+                },
                 new Employee()
                 {
-                    Id = 0,
+                    Id = 2,
                     Name = "Klara",
                     Email = "klarasaryeva@gmail.com",
                     PhotoPath = "azulla.jpg",
                     Department = Department.IT
-                };
+                },
                 new Employee()
                 {
-                    Id = 0,
+                    Id = 3,
                     Name = "Suban",
                     Email = "subanlord@gmail.com",
                     PhotoPath = "maska.jpg",
                     Department = Department.Mone
-                };
+                },
                 new Employee()
                 {
-                    Id = 0,
+                    Id = 4,
                     Name = "Azim",
                     Email = "azimturdumambetov@gmail.com",
                     PhotoPath = "aang.jpg",
                     Department = Department.Payroll
-                };
+                },
                 new Employee()
                 {
-                    Id = 0,
+                    Id = 5,
                     Name = "Diana",
                     Email = "dianamelisbekova@gmail.com",
                     PhotoPath = "katara.jpg",
                     Department = Department.Payroll
-                };
+                },
                 new Employee()
                 {
                     Id = 0,
                     Name = "Nursultan",
                     Email = "nursultanmamytbekov@gmail.com",
                     Department = Department.HR
-                };
+                },
 
-            }
+            };
         }
         public IEnumerable<Employee> GetAllEmployess()
         {
-            return employeesList;
+            return _employeesList;
         }
     }
 }
