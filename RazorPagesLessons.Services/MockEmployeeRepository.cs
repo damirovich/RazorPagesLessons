@@ -63,7 +63,7 @@ namespace RazorPagesLessons.Services
                 },
                 new Employee()
                 {
-                    Id = 0,
+                    Id = 6,
                     Name = "Nursultan",
                     Email = "nursultanmamytbekov@gmail.com",
                     Department = Department.HR

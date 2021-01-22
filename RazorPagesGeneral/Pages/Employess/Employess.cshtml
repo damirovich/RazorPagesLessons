@@ -4,4 +4,30 @@
     ViewData["Title"] = "Employees";
 }
 <h1>Employees</h1>
-<h4>Emploess Count @Model.Employess.Count()</h4>
+<div class="row">
+    @foreach (var item in Model.Employess)
+    {
+        //Формируем путь к фотографиям
+        var photoPath = $"/image/{item.PhotoPath ?? "noimage.png"}";
+        //Колличество колонок
+        <div class="col-12 col-sm-6 col-lg-4">
+            <div class="card-deck">
+                <div class="card m-3 cardBoxShadow">
+                    <div class="card-header text-center cardHeaderStyle">
+                        <h3>@item.Name</h3>
+                    </div>
+
+                    <div class="text-center cardBodyStyle">
+                        <img class="card-img-top imageThumnail" src="@photoPath" asp-append-version="true" />
+                    </div>
+
+                    <div class="card-footer text-center">
+                        <a href="#" class="btn btn-success m-1 buttonShadow">View</a>
+                        <a href="#" class="btn btn-primary m-1 buttonShadow">Edit</a>
+                        <a href="#" class="btn btn-danger m-1 buttonShadow">Delete</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+</div>
