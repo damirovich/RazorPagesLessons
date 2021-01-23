@@ -3,12 +3,13 @@
 @{
     ViewData["Title"] = "Employees";
 }
+@*<link href="@Url.Content("~/css/site.css")" rel="stylesheet" />*@
 <h1>Employees</h1>
 <div class="row">
     @foreach (var item in Model.Employess)
     {
-        //Формируем путь к фотографиям
-        var photoPath = $"/image/{item.PhotoPath ?? "noimage.png"}";
+        //Формируем путь к фотографиям   
+        var photoPath = $"/images/{item.PhotoPath ?? "noimage.png"}";
         //Колличество колонок
         <div class="col-12 col-sm-6 col-lg-4">
             <div class="card-deck">
@@ -18,7 +19,7 @@
                     </div>
 
                     <div class="text-center cardBodyStyle">
-                        <img class="card-img-top imageThumnail" src="@photoPath" asp-append-version="true" />
+                        <img class="card-img-top imageThumbnail" src="@photoPath" asp-append-version="true" />
                     </div>
 
                     <div class="card-footer text-center">

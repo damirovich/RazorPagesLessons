@@ -18,7 +18,7 @@ namespace RazorPagesLessons.Services
                     Id = 0,
                     Name = "Batilek",
                     Email = "baktilekashyrov8@gmail.com",
-                    PhotoPath = "zuko.jpg",
+                    PhotoPath = "avatar.png",
                     Department = Department.IT
                 },
                 new Employee()
@@ -26,7 +26,7 @@ namespace RazorPagesLessons.Services
                     Id = 1,
                     Name = "Samat",
                     Email = "samatmuratov@gmail.com",
-                    PhotoPath = "sokko.jpg",
+                    PhotoPath = "avatar3.png",
                     Department = Department.HR
                 },
                 new Employee()
@@ -34,7 +34,7 @@ namespace RazorPagesLessons.Services
                     Id = 2,
                     Name = "Klara",
                     Email = "klarasaryeva@gmail.com",
-                    PhotoPath = "azulla.jpg",
+                    PhotoPath = "avatar2.png",
                     Department = Department.IT
                 },
                 new Employee()
@@ -42,7 +42,7 @@ namespace RazorPagesLessons.Services
                     Id = 3,
                     Name = "Suban",
                     Email = "subanlord@gmail.com",
-                    PhotoPath = "maska.jpg",
+                    PhotoPath = "avatar4.png",
                     Department = Department.Mone
                 },
                 new Employee()
@@ -50,7 +50,7 @@ namespace RazorPagesLessons.Services
                     Id = 4,
                     Name = "Azim",
                     Email = "azimturdumambetov@gmail.com",
-                    PhotoPath = "aang.jpg",
+                    PhotoPath = "avatar5.png",
                     Department = Department.Payroll
                 },
                 new Employee()
@@ -58,15 +58,7 @@ namespace RazorPagesLessons.Services
                     Id = 5,
                     Name = "Diana",
                     Email = "dianamelisbekova@gmail.com",
-                    PhotoPath = "katara.jpg",
                     Department = Department.Payroll
-                },
-                new Employee()
-                {
-                    Id = 6,
-                    Name = "Nursultan",
-                    Email = "nursultanmamytbekov@gmail.com",
-                    Department = Department.HR
                 },
 
             };
