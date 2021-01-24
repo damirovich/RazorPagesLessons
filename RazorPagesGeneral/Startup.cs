@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
+using Microsoft.AspNetCore.Routing;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -26,6 +27,17 @@ namespace RazorPagesGeneral
         {
             services.AddSingleton<IEmployeeRepository,MockEmployeeRepository>();//Внедрил зависимость
             services.AddRazorPages();
+
+            //Для того чтобы в маршрутизации не показывал большие буквы а вся маршрут был маленькими буквами
+            services.Configure<RouteOptions>(options =>
+            {
+                options.LowercaseUrls = true;
+                //что и Id тоже был маленькими буквами https://localhost:5001/employess/details/?id=2
+                // а не вот так https://localhost:5001/employess/details?ID=2
+                options.LowercaseQueryStrings = true;
+                //Автоматически добавлял на каждый параметр слеш /////
+                options.AppendTrailingSlash = true;
+            });
 
         }
 

@@ -8,5 +8,6 @@ namespace RazorPagesLessons.Services
     public interface IEmployeeRepository
     {
         IEnumerable<Employee> GetAllEmployess();
+        Employee GetEmployee(int id);
     }
 }

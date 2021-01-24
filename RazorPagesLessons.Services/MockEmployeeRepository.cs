@@ -1,6 +1,7 @@
 ﻿using RazorPagesLessons.Models;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace RazorPagesLessons.Services
@@ -62,7 +63,12 @@ namespace RazorPagesLessons.Services
                 },
 
             };
-        }
+        } 
+        //Метод для возвращение только одного запися по id 
+        public Employee GetEmployee(int id)
+        {
+            return _employeesList.FirstOrDefault(x => x.Id == id);
+        } 
         public IEnumerable<Employee> GetAllEmployess()
         {
             return _employeesList;
