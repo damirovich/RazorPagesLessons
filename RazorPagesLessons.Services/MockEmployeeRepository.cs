@@ -73,5 +73,18 @@ namespace RazorPagesLessons.Services
         {
             return _employeesList;
         }
+        //Метод для обновление данных   
+        public Employee Update(Employee updateEmployee)
+        {
+            Employee employee = _employeesList.FirstOrDefault(x => x.Id == updateEmployee.Id);
+            if (employee != null)
+            {
+                employee.Name = updateEmployee.Name;
+                employee.Email = updateEmployee.Email;
+                employee.Departmentt = updateEmployee.Departmentt;
+                employee.PhotoPath = updateEmployee.PhotoPath;
+            }
+            return employee;
+        }
     }
 }
