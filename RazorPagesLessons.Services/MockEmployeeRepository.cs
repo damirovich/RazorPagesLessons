@@ -20,7 +20,7 @@ namespace RazorPagesLessons.Services
                     Name = "Batilek",
                     Email = "baktilekashyrov8@gmail.com",
                     PhotoPath = "avatar.png",
-                    Department = Department.IT
+                    Departmentt = Department.IT
                 },
                 new Employee()
                 {
@@ -28,7 +28,7 @@ namespace RazorPagesLessons.Services
                     Name = "Samat",
                     Email = "samatmuratov@gmail.com",
                     PhotoPath = "avatar3.png",
-                    Department = Department.HR
+                    Departmentt = Department.HR
                 },
                 new Employee()
                 {
@@ -36,7 +36,7 @@ namespace RazorPagesLessons.Services
                     Name = "Klara",
                     Email = "klarasaryeva@gmail.com",
                     PhotoPath = "avatar2.png",
-                    Department = Department.IT
+                    Departmentt = Department.IT
                 },
                 new Employee()
                 {
@@ -44,7 +44,7 @@ namespace RazorPagesLessons.Services
                     Name = "Suban",
                     Email = "subanlord@gmail.com",
                     PhotoPath = "avatar4.png",
-                    Department = Department.Mone
+                    Departmentt = Department.Mone
                 },
                 new Employee()
                 {
@@ -52,14 +52,14 @@ namespace RazorPagesLessons.Services
                     Name = "Azim",
                     Email = "azimturdumambetov@gmail.com",
                     PhotoPath = "avatar5.png",
-                    Department = Department.Payroll
+                    Departmentt = Department.Payroll
                 },
                 new Employee()
                 {
                     Id = 5,
                     Name = "Diana",
                     Email = "dianamelisbekova@gmail.com",
-                    Department = Department.Payroll
+                    Departmentt = Department.Payroll
                 },
 
             };

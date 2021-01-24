@@ -10,6 +10,6 @@ namespace RazorPagesLessons.Models
         public string Name { get; set; }
         public string Email { get; set; }
         public string PhotoPath { get; set; }
-        public Department? Department { get; set; }
+        public Department? Departmentt { get; set; }
     }
 }
