@@ -9,7 +9,7 @@ using Microsoft.AspNetCore.Routing;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using RazorPagesProject.Services;
+using RazorPagesProject.Servicess;
 
 namespace RazorPagesGeneral
 {

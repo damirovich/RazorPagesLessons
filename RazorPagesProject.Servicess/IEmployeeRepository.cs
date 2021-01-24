@@ -1,13 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using RazorPagesProject.Models;
-
-namespace RazorPagesProject.Services
+using RazorPagesProject.Modelss;
+namespace RazorPagesProject.Servicess
 {
     public interface IEmployeeRepository
     {
-        IEnumerable<Employee> GetAllEmployess();
+        IEnumerable<Employee> GetAllEmployees();
         Employee GetEmployee(int id);
         Employee Update(Employee updateEmployee);
     }

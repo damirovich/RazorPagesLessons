@@ -1,12 +1,12 @@
-﻿using RazorPagesProject.Models;
+﻿using RazorPagesProject.Modelss;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace RazorPagesProject.Services
+namespace RazorPagesProject.Servicess
 {
-    public class MockEmployeeRepository : IEmployeeRepository
+    public class MockEmployeeRepository: IEmployeeRepository
     {
         private List<Employee> _employeesList;
 
@@ -27,7 +27,7 @@ namespace RazorPagesProject.Services
                     Id = 1,
                     Name = "Samat",
                     Email = "samatmuratov@gmail.com",
-                    PhotoPath = "avatar3.png",
+                    PhotoPath = "299d8574-0246-41d4-94ea-67453dcdd6b0_avatar3.png",
                     Departmentt = Department.HR
                 },
                 new Employee()
@@ -63,13 +63,13 @@ namespace RazorPagesProject.Services
                 },
 
             };
-        } 
+        }
         //Метод для возвращение только одного запися по id 
         public Employee GetEmployee(int id)
         {
             return _employeesList.FirstOrDefault(x => x.Id == id);
-        } 
-        public IEnumerable<Employee> GetAllEmployess()
+        }
+        public IEnumerable<Employee> GetAllEmployees()
         {
             return _employeesList;
         }
@@ -88,3 +88,4 @@ namespace RazorPagesProject.Services
         }
     }
 }
+

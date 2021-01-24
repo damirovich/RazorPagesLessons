@@ -4,8 +4,8 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using RazorPagesProject.Services;
-using RazorPagesProject.Models;
+using RazorPagesProject.Servicess;
+using RazorPagesProject.Modelss;
 namespace RazorPagesGeneral.Pages.Employess
 {
     public class DetailsModel : PageModel

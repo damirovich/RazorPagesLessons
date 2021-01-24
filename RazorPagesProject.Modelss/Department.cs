@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace RazorPagesProject.Models
+namespace RazorPagesProject.Modelss
 {
     public enum Department
     {
