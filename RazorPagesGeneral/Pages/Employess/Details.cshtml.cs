@@ -17,9 +17,13 @@ namespace RazorPagesGeneral.Pages.Employess
         }
         public Employee Employee { get; private set; }
         //Метод для получение данных 
-        public void OnGet(int id)
+        public IActionResult OnGet(int id)
         {
             Employee = _employeeRepository.GetEmployee(id);
+            //Обработка исключение 
+            if (Employee == null) 
+                return RedirectToPage("/NotFound");
+            return Page();
         }
     }
 }
