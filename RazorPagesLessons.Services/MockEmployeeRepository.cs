@@ -1,10 +1,10 @@
-﻿using RazorPagesLessons.Models;
+﻿using RazorPagesProject.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace RazorPagesLessons.Services
+namespace RazorPagesProject.Services
 {
     public class MockEmployeeRepository : IEmployeeRepository
     {

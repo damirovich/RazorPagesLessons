@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using RazorPagesLessons.Models;
+using RazorPagesProject.Models;
 
-namespace RazorPagesLessons.Services
+namespace RazorPagesProject.Services
 {
     public interface IEmployeeRepository
     {

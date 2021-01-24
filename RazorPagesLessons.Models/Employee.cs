@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace RazorPagesLessons.Models
+namespace RazorPagesProject.Models
 {
     public class Employee
     {
