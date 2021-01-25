@@ -21,7 +21,7 @@ namespace RazorPagesGeneral.Pages.Employess
             _employeeRepository = employeeRepository;
             _webHostEnvironment = webHostEnvironment;
         }
-
+        [BindProperty]
         public Employee Employee { get; set; }
         //Свойство для оброботки 
         [BindProperty]
@@ -38,22 +38,27 @@ namespace RazorPagesGeneral.Pages.Employess
             return Page();
         }
 
-        public IActionResult OnPost(Employee employee)
+        public IActionResult OnPost()
         {
-            if (Photo != null)
+            if (ModelState.IsValid)
             {
-                //Удаление старой фотографии c сервера
-                if (employee.PhotoPath != null)
+                if (Photo != null)
                 {
-                    string filePath = Path.Combine(_webHostEnvironment.WebRootPath, "images", employee.PhotoPath);
-                    System.IO.File.Delete(filePath);
-                }
+                    //Удаление старой фотографии c сервера
+                    if (Employee.PhotoPath != null)
+                    {
+                        string filePath = Path.Combine(_webHostEnvironment.WebRootPath, "images", Employee.PhotoPath);
+                        System.IO.File.Delete(filePath);
+                    }
 
-                employee.PhotoPath = ProcessUploadFile();
-            }
-            Employee = _employeeRepository.Update(employee);
-            TempData["SeccessMessage"] = $"Update {Employee.Name} successfull";
-            return RedirectToPage("Employess");
+                    Employee.PhotoPath = ProcessUploadFile();
+                }
+                Employee = _employeeRepository.Update(Employee);
+                TempData["SeccessMessage"] = $"Update {Employee.Name} successfull";
+
+                return RedirectToPage("Employess");
+            }    
+                return Page();
         }
         //Метод для вывода сообщений
         public void OnPostUpdateNotificationPreferences(int id)
