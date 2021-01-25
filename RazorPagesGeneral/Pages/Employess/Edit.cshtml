@@ -1,14 +1,35 @@
-﻿@page "id"
+﻿@page "{id}/{handler?}"
 @model RazorPagesGeneral.Pages.Employess.EditModel
 @{
     ViewData["Title"] = "Edit";
 
     var photoPath = $"/images/{Model.Employee.PhotoPath ?? "noimage.png"}";
 }
+<form method="post" asp-page-handler="UpdateNotificationPreferences">
+    <div class="row text-center noitfyBlock">
+        <div class="col form-check">
+            <h2>Notification Preference</h2>
+            <input asp-for="Notify" class="form-check-input" />
+            <label asp-for="Notify" class="form-check-label">
+                Receive email notification when my details change 
+            </label><br />
+            
+            <button type="submit" class="btn btn-primary text-center">Update Notification Preference</button>
+            <!--Для вывода сообщение что изменилась данные-->
+            @if (!string.IsNullOrWhiteSpace(Model.Message))
+            {
+                <div class="alert alert-success">
+                    <p class="p-3 mt-2">@Model.Message</p>
+                </div>
+            }
+        </div>
+    </div>
+</form>
+<hr />
 <!--Создаём форму редактирования-->
 <!--c помощью с этого аргумента enctype="multipart/form-data" мы можем передавать какие либо данные -->
 <!--а то будет по умолчанию возвращать null-->
-<form method="post" class="mt-3" enctype="multipart/form-data">
+<form method="post" asp-page-handler="OnPost" class="mt-3" enctype="multipart/form-data">
     <!--Создаём скрытое поле для параметра ID-->
     <input type="hidden" asp-for="Employee.Id" />
     <!--Создаём скрытое поле для параметра PhotoPath-->

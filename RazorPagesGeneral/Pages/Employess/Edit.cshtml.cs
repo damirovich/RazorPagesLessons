@@ -26,6 +26,9 @@ namespace RazorPagesGeneral.Pages.Employess
         //Свойство для оброботки 
         [BindProperty]
         public IFormFile Photo { get; set; }
+        [BindProperty]
+        public bool Notify { get; set; }
+        public string Message { get; set; }
         public IActionResult OnGet(int id)
         {
             Employee = _employeeRepository.GetEmployee(id);
@@ -49,9 +52,20 @@ namespace RazorPagesGeneral.Pages.Employess
                 employee.PhotoPath = ProcessUploadFile();
             }
             Employee = _employeeRepository.Update(employee);
+            TempData["SeccessMessage"] = $"Update {Employee.Name} successfull";
             return RedirectToPage("Employess");
         }
-        //Метод для сохранение фотографии и добавление уникального имени и проверка на null
+        //Метод для вывода сообщений
+        public void OnPostUpdateNotificationPreferences(int id)
+        {
+            if (Notify)
+                Message = "Thank you for turning on notifications";
+            else
+                Message = "You have turnet of email notifications";
+
+            Employee = _employeeRepository.GetEmployee(id);
+        }
+        //Метод для сохранение фотографии и добавление уникального имени на фото и проверка на null
         private string ProcessUploadFile()
         {
             string uniqueFileName = null;
