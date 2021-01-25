@@ -1,9 +1,10 @@
-﻿@page "{id}/{handler?}"
+﻿@page "{id:min(1)?}/{handler?}"
 @model RazorPagesGeneral.Pages.Employess.EditModel
 @{
-    ViewData["Title"] = "Edit";
-
     var photoPath = $"/images/{Model.Employee.PhotoPath ?? "noimage.png"}";
+
+    var pageTitle = Model.Employee.Id > 0 ? "Edite" : "Create";
+    ViewData["Title"] = pageTitle;
 }
 <form method="post" asp-page-handler="UpdateNotificationPreferences">
     <div class="row text-center noitfyBlock">
@@ -26,6 +27,11 @@
     </div>
 </form>
 <hr />
+<!--Вывод все ошибки в месте под форой -->
+<div asp-validation-summary="All" class="text-danger text-center">
+
+</div>
+
 <!--Создаём форму редактирования-->
 <!--c помощью с этого аргумента enctype="multipart/form-data" мы можем передавать какие либо данные -->
 <!--а то будет по умолчанию возвращать null-->
@@ -119,5 +125,7 @@
                 });
             });
         </script>
+        <!--Валидация на стороне браузера включена-->
+        <partial name="_ValidationScriptsPartial" />
     }
 </form>

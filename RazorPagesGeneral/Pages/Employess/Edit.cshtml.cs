@@ -29,9 +29,13 @@ namespace RazorPagesGeneral.Pages.Employess
         [BindProperty]
         public bool Notify { get; set; }
         public string Message { get; set; }
-        public IActionResult OnGet(int id)
+        public IActionResult OnGet(int? id)
         {
-            Employee = _employeeRepository.GetEmployee(id);
+            if (id.HasValue)
+                Employee = _employeeRepository.GetEmployee(id.Value);
+            else
+                Employee = new Employee();
+
             if (Employee == null)
                 return RedirectToPage("/NotFound");
 
@@ -53,9 +57,17 @@ namespace RazorPagesGeneral.Pages.Employess
 
                     Employee.PhotoPath = ProcessUploadFile();
                 }
-                Employee = _employeeRepository.Update(Employee);
-                TempData["SeccessMessage"] = $"Update {Employee.Name} successfull";
-
+                //проверка на 
+                if (Employee.Id > 0)
+                {
+                    Employee = _employeeRepository.Update(Employee);
+                    TempData["SeccessMessage"] = $"Update {Employee.Name} successfull";
+                }
+                else
+                {
+                    Employee = _employeeRepository.Add(Employee);
+                    TempData["SeccessMessage"] = $"Adding {Employee.Name} successfull";
+                }
                 return RedirectToPage("Employess");
             }    
                 return Page();

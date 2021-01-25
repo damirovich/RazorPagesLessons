@@ -64,6 +64,13 @@ namespace RazorPagesProject.Servicess
 
             };
         }
+        //Метод для добавления Employee
+        public Employee Add(Employee newEmployee)
+        {
+            newEmployee.Id = _employeesList.Max(x => x.Id) + 1;
+            _employeesList.Add(newEmployee);
+            return newEmployee;
+        }
         //Метод для возвращение только одного запися по id 
         public Employee GetEmployee(int id)
         {
