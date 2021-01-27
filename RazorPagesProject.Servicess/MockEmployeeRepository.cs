@@ -93,6 +93,15 @@ namespace RazorPagesProject.Servicess
             }
             return employee;
         }
+        //Метод для удаление сотрудника 
+        public Employee Delete(int id)
+        {
+            Employee employeeToDelete = _employeesList.FirstOrDefault(x => x.Id == id);
+            if (employeeToDelete != null)
+                _employeesList.Remove(employeeToDelete);//Удаление 
+
+            return employeeToDelete;
+        }
     }
 }
 

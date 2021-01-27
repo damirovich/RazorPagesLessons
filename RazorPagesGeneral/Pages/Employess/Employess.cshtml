@@ -2,6 +2,7 @@
 @model RazorPagesGeneral.Pages.Employess.EmployessModel
 @{
     ViewData["Title"] = "Employees";
+    ViewData["ShowButtons"] = true;
 }
 @if (TempData["SeccessMessage"] != null)
 {
@@ -13,27 +14,9 @@
 <div class="row">
     @foreach (var item in Model.Employess)
     {
-        //Формируем путь к фотографиям   
-        var photoPath = $"/images/{item.PhotoPath ?? "noimage.png"}";
-        //Колличество колонок
-        <div class="col-12 col-sm-6 col-lg-4">
-            <div class="card-deck">
-                <div class="card m-3 cardBoxShadow">
-                    <div class="card-header text-center cardHeaderStyle">
-                        <h3>@item.Name</h3>
-                    </div>
-
-                    <div class="text-center cardBodyStyle">
-                        <img class="card-img-top imageThumbnail" src="@photoPath" asp-append-version="true" />
-                    </div>
-
-                    <div class="card-footer text-center">
-                        <a asp-page="/Employess/Details" asp-route-ID="@item.Id" class="btn btn-success m-1 buttonShadow">View</a>
-                        <a asp-page="/Employess/Edit" asp-route-ID="@item.Id" class="btn btn-primary m-1 buttonShadow">Edit</a>
-                        <a href="#" class="btn btn-danger m-1 buttonShadow">Delete</a>
-                    </div>
-                </div>
-            </div>
-        </div>
+    <div class="col-12 col-sm-6 col-lg-4">
+        <!--Вызов частичной модели созданный в папке Shared_DisplayEmployeePartial-->
+        <partial name="_DisplayEmployeePartial" model="item" view-data="ViewData">
+    </div>
     }
 </div>

@@ -1,0 +1,26 @@
+﻿@model Employee
+@{
+    //Формируем путь к фотографиям
+    var photoPath = $"/images/{Model.PhotoPath ?? "noimage.png"}";
+    var showButtons = (bool)ViewData["showButtons"];
+}
+<div class="card-deck">
+    <div class="card m-3 cardBoxShadow">
+        <div class="card-header text-center cardHeaderStyle">
+            <h3>@Model.Name</h3>
+        </div>
+
+        <div class="text-center cardBodyStyle">
+            <img class="card-img-top imageThumbnail" src="@photoPath" asp-append-version="true" />
+        </div>
+        @if (showButtons)//Если мы будем передовать true Тогда кнопки будут отбражатся
+                        //Для того чтобы кнопки формы в старница удалении уберет
+        {
+        <div class="card-footer text-center">
+            <a asp-page="/Employess/Details" asp-route-ID="@Model.Id" class="btn btn-success m-1 buttonShadow">View</a>
+            <a asp-page="/Employess/Edit" asp-route-ID="@Model.Id" class="btn btn-primary m-1 buttonShadow">Edit</a>
+            <a asp-page="/Employess/Delete" asp-route-ID="@Model.Id" class="btn btn-danger m-1 buttonShadow">Delete</a>
+        </div>
+        }
+    </div>
+</div>
