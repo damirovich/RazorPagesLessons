@@ -4,6 +4,16 @@
     ViewData["Title"] = "Employee Details";
     var photoPath = $"/images/{Model.Employee.PhotoPath ?? "noimage.png"}";
 }
+<!--Вывести департамент и его колличество сотрудников только принадлежащий этому сотруднику-->
+<div class="row justify-content-center m-3">
+    <div class="col col-lg-8">
+        <!--Вызов метода асинхронно-->
+        <!--Два способа есть-->
+        @*@await Component.InvokeAsync("HeadCount", new { department = Model.Employee.Departmentt })*@
+        <vc:head-count department="@Model.Employee.Departmentt"></vc:head-count>
+    </div>
+</div>
+
 <div class="row justify-content-center m-3">
     <div class="col col-lg-8">
         <div class="card cardBoxShadow">
@@ -21,7 +31,7 @@
                     </div>
                     <div class="col col-lg-3">
                         <div style="border-right: 1px solid rgba(0,0,0,.1);">
-                            <img class="card-img-top imageThumbnail border border-primary" style="background-color: #dle7ff;" src="@photoPath" asp-append-version="true"/>
+                            <img class="card-img-top imageThumbnail border border-primary" style="background-color: #dle7ff;" src="@photoPath" asp-append-version="true" />
                         </div>
                     </div>
                 </div>

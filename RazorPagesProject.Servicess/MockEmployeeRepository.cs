@@ -102,6 +102,22 @@ namespace RazorPagesProject.Servicess
 
             return employeeToDelete;
         }
+
+        //Метод Получение данных 
+        public IEnumerable<DepartmentHeadCount> EmployeeCountByDepartment(Department? department)
+        {
+            IEnumerable<Employee> query = _employeesList;
+            if (department.HasValue)
+                query = query.Where(x => x.Departmentt == department.Value);
+            
+            return query.GroupBy(x => x.Departmentt)
+                                  .Select(x => new DepartmentHeadCount()
+                                  {
+                                      Department = x.Key.Value,
+                                      Count = x.Count()
+                                  }).ToList();
+
+        }
     }
 }
 

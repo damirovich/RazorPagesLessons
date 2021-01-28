@@ -11,5 +11,7 @@ namespace RazorPagesProject.Servicess
         Employee Update(Employee updateEmployee);
         Employee Add(Employee newEmployee);
         Employee Delete(int id);
+        IEnumerable<DepartmentHeadCount> EmployeeCountByDepartment(Department? department);
+
     }
 }

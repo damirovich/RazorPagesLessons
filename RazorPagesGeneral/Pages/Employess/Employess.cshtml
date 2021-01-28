@@ -10,6 +10,10 @@
         @TempData["SeccessMessage"]
     </div>
 }
+<!--Вывести список департаментов и сколько у них сотрудников-->
+@*@await Component.InvokeAsync("HeadCount")*@
+<!--Есть два спасоба -->
+<vc:head-count department="@null"></vc:head-count>
 <h1>Employees</h1>
 <div class="row">
     @foreach (var item in Model.Employess)
