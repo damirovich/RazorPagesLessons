@@ -1,7 +1,5 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using System.IO;
+using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using RazorPagesProject.Modelss;
@@ -12,9 +10,11 @@ namespace RazorPagesGeneral.Pages.Employess
     public class DeleteModel : PageModel
     {
         private readonly IEmployeeRepository _employeeRepository;
-        public DeleteModel(IEmployeeRepository employeeRepository)
+        public readonly IWebHostEnvironment _webHostEnvironment;
+        public DeleteModel(IEmployeeRepository employeeRepository, IWebHostEnvironment webHostEnvironment)
         {
-            _employeeRepository = employeeRepository;   
+            _employeeRepository = employeeRepository;
+            _webHostEnvironment = webHostEnvironment;
         }
         [BindProperty]
         public Employee Employee { get; set; }
@@ -30,6 +30,16 @@ namespace RazorPagesGeneral.Pages.Employess
         public IActionResult OnPost()
         {
             Employee deleteEmployee = _employeeRepository.Delete(Employee.Id);
+
+            //Удаление старой фотографии c сервера
+            if (deleteEmployee.PhotoPath != null)
+            {
+                string filePath = Path.Combine(_webHostEnvironment.WebRootPath, "images", deleteEmployee.PhotoPath);
+
+                if (deleteEmployee.PhotoPath != "noimage.png")
+                    System.IO.File.Delete(filePath);
+
+            }
             if (deleteEmployee == null)
                 return RedirectToPage("/NotFound");
 

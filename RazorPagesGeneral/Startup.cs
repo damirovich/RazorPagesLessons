@@ -30,8 +30,8 @@ namespace RazorPagesGeneral
             {
                 options.UseSqlServer(Configuration.GetConnectionString("EmployeeDbConnection"));
             });
-
-            services.AddSingleton<IEmployeeRepository,MockEmployeeRepository>();//Внедрил зависимость
+           // services.AddSingleton<IEmployeeRepository, MockEmployeeRepository>();
+            services.AddScoped<IEmployeeRepository,SqlEmployeeRepository>();//Внедрил зависимость
             services.AddRazorPages();
 
             //Для того чтобы в маршрутизации не показывал большие буквы а вся маршрут был маленькими буквами
