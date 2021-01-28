@@ -12,6 +12,7 @@ namespace RazorPagesProject.Servicess
         Employee Add(Employee newEmployee);
         Employee Delete(int id);
         IEnumerable<DepartmentHeadCount> EmployeeCountByDepartment(Department? department);
+        IEnumerable<Employee> Search(string searchTerm);
 
     }
 }

@@ -20,10 +20,12 @@ namespace RazorPagesGeneral.Pages.Employess
         }
         //Свойства модели для использование в представлении
         public IEnumerable<Employee> Employess { get; set; }
+        [BindProperty(SupportsGet =true)]
+        public string SearchTerm { get; set; }
         public void OnGet()
         {
             //Заполнение модели
-            Employess = _db.GetAllEmployees();
+            Employess = _db.Search(SearchTerm);
         }
     }
 }

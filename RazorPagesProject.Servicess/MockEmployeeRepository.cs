@@ -118,6 +118,14 @@ namespace RazorPagesProject.Servicess
                                   }).ToList();
 
         }
+        //Метод для поиска
+        public IEnumerable<Employee> Search(string searchTerm)
+        {
+            if (string.IsNullOrWhiteSpace(searchTerm))
+                return _employeesList;
+
+            return _employeesList.Where(x => x.Name.ToLower().Contains(searchTerm.ToLower()) || x.Email.ToLower().Contains(searchTerm.ToLower()));
+        }
     }
 }
 
